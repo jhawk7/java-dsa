@@ -1,5 +1,7 @@
 import java.util.HashMap;
 
+// manual implementation; use LinkedList<> from java util in real world
+
 public class LinkedList {
   private Node head;
   private Node tail;

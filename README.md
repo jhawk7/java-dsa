@@ -26,6 +26,7 @@ public class Main {
 - `double` - 8 byte float number
 - `char` - 2 byte character (String is not a primitive, but is the only object that is overloaded to use '+')
 - `boolean` - 1 byte boolean value (true, false)
+- (some of the primitives have corresponding **class versions** that must be used to initialize objects (e.g. int ~ Integer, bool ~ Boolean))
 
 ### Comparisons
 - java has all the logical and value comparisons
@@ -44,6 +45,33 @@ try {
   //code to handle some exception gracefully
 }
 ```
+
+### Generics
+- Java has `generics` that can be used as placedholders for types when creating interfaces, classes, methods, etc. to eliminate explicit type casting
+- (e.g. `List<Integer> l = ArrayList<>();` - the List interface uses generics so that we can create lists of any type)
+```
+public class MyClass<T1, T2> {
+  private T1 something1;
+  private T2 something2;
+
+  MyClass(T1 a, T2 b) {
+    this.something1 = a;
+    this.something2 = b;
+  }
+}
+
+// type can is specified at object creation
+MyClass<Integer, String> mine = new MyClass<>(1, "one");
+```
+
+### Collections
+- Collections in Java are frameworks that provide an architecture to store and manipulate a group of objects. They offer various data structures like `lists, sets, maps, and more`, along with algorithms to work with these structures. The `java.util package` contains the Java Collections Framework (JCF). Here’s a quick overview:
+  - `List`: Ordered collection that allows duplicate elements (e.g., `ArrayList, LinkedList`).
+  - `Set`: Collection that does not allow duplicate elements (e.g., `HashSet, LinkedHashSet, TreeSet`).
+  - `Map`: Collection of key-value pairs with unique keys (e.g., `HashMap, TreeMap, LinkedHashMap`).
+  - `Queue`: Collection used to hold multiple elements prior to processing (e.g., `PriorityQueue`).
+- More on java collections - `https://www.digitalocean.com/community/tutorials/collections-in-java-tutorial`
+- `https://www.geeksforgeeks.org/collections-in-java-2/`
 
 ## OOP
 - `public` - grants everyone access to the class or member
@@ -102,6 +130,8 @@ class concreteClass implements abstractClass {
 
 ```
 
+## Strings
+
 ## Arrays
 - you can declare an array with a size in java like this (`int[] arr = new int[10];`)
 - arrays can be initialized with values like this (`int[] arr = {1,2,3}`)
@@ -114,5 +144,31 @@ for (int v: arr) {
 }
 ```
 
-## HashMap
+## ArrayLists & LinkedLists
+- in java, the `List` interface from the util package is used to impelement `ArrayList` - dynamic arrays - as well as `LinkedList` - doubly linked lists
+- LinkedList and ArrayList both implement the List interface and are therefore both of the List type
+- use the `.get(v)`, `.add(v)`, `.remove(v)` methods to access, insert, and delete from a list
+
+```
+List<Integer> myList = new ArrayList<>();
+List<Integer> myLinkedList = new LinkedList<>();
+```
+
+## Stacks
+
+## Queues
+
+## Maps
+`https://www.w3schools.com/java/java_ref_hashmap.asp`
+
+## Sets
+
+## Heaps
+
+## Trees
+
+## Tries
+
+## Graphs
+
 
