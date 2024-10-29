@@ -114,3 +114,5 @@ for (int v: arr) {
 }
 ```
 
+## HashMap
+
