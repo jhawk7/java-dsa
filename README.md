@@ -78,10 +78,10 @@ MyClass<Integer, String> mine = new MyClass<>(1, "one");
 - `static` - declares a class member that does not belong to an instance of the class
 - `void` - means the method does not return a value
 - `private` - only accessible from within class
-- `inheritance` - the adoption of all non-private properties and methods of a superclass by a subclass via the `extends` keyword (the `super` method prefix can be used to invoke superclass methods from the derived class (e.g. `super.mehtod`))
+
 - `interafaces` - define the structure of a class and class members; class templates that define method signatures
   - interfaces can be implemented by a class which must contain all the interface's methods
-  - generally uses as templates for multiple classes
+  - generally used as templates for multiple classes; use an interface when you need to define a contract that multiple classes can implement, regardless of their place in the class hierarchy.
 ```
 interface IAnimal {
   boolean feed(boolean timeToEat);
@@ -107,13 +107,11 @@ class Dog implements IAnimal {
 }
 ```
 
-- `polymorphism` -
-- `abstraction` -
-- `encapsulation` - 
 - `abstract classes` - classes with the `abstract` keyword prefixed that are declared but not implemented **(though they can contain concrete methods)**; a class must be abstract if it has one or more methods with the abstract keyword; the derived class MUST implement all the abstract methods of the abstract base class
   - abstract classes can't contain fields which are both `final` and `static`
   - abstract classes with only abstract methods **should be defined as interface**
   - derived class can `implement` - define the abstract class - or `extend` - add additional functionality to the class
+  - Use an abstract class when you need to share code among several closely related classes or when you want to define a common base class with shared fields and methods.
 ```
 abstract class abstractClass {
   abstract void abstractMethod();
@@ -129,6 +127,13 @@ class concreteClass implements abstractClass {
 }
 
 ```
+
+**4 Pillars of OOP**
+- `inheritance` - the adoption of all non-private properties and methods of a superclass by a subclass via the `extends` keyword (the `super` method prefix can be used to invoke superclass methods from the derived class (e.g. `super.mehtod`))
+- `polymorphism` -
+- `abstraction` -
+- `encapsulation` - 
+
 
 ## Strings
 
@@ -172,3 +177,57 @@ List<Integer> myLinkedList = new LinkedList<>();
 ## Graphs
 
 
+# Common OOP Design Patterns
+
+## SOLID Principals
+- **Single-Responsibility** - A class should only have one reason to change / on job
+
+- **Open-Closed** - A class should be open for extension but closed for modification. A class should be extendable without modifying the class itself.
+
+- **Liskov Substitution** - every subclass or derived class should be substitutable for their base or parent class
+
+- **Interface Segregation** - A client should never be forced to implement an interface that it doesn't use, or clients shouldn't be forced to depend on methods they do not use.
+
+- **Dependency Inversion** - Entities must depend on abstractinos, not on concretions. It states that the high-level module must not depend on the low-level module, but they should depend on abstractions. Allows for decoupling (Use interfaces!).
+
+
+## Creational Patterns
+- support the creation objects
+
+**Factory Method:**
+- The factory patterns solves the problem of continously modifying some sort of object creation class every time we want to create a new object (simple factory). It allows creator subclasses to be created from some abstract class (abstract factory method) or interface with the specific purpose of creating an object. This allows the abstract class/interface to be extended for new creation classes and satisifieds SOLID principles
+
+**Singleton:**
+- One instance of a singleton class exists at any point in time for the purposes of sharing state.
+
+**Builder**
+- invokes concrete classes implementing interfaces to construct parts of complex objects
+
+## Structural Patterns
+- support relationships between objects
+
+**Adapter**
+- works between two independent or incompatible interfaces
+
+**Facade**
+- creates a layer of abstraction to simplify using an object or a group of objects behind the facade
+
+**Composite**
+- The composite pattern allows to treat a group of objects the same way as a single object
+- useful in tree like object structures
+
+**Decorator**
+- lets us add functionality to an object at run-time without altering its structure
+
+## Behavioral Patterns
+- support object interaction and respobsibility
+
+**Command**
+- encapsulates a request as an object, allowing for parameterization of objects with certain actions or triggers
+- command class has list of objects that it can invoke the same command on w/o knowledge of the logic behind the command
+
+**Observer**
+- defines a one-to-many realtionship between objects so that when one object changes state, all its dependents are notified and updated automatically 
+
+**Strategy**
+- Defines a family of algorithms and encapsulates each one making them interchangeable
